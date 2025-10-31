@@ -51,15 +51,27 @@ export default function FacialExpression({ setSongs }) {
     }, []);
 
     return (
-        <div className='mood-element'>
-            <video
-                ref={videoRef}
-                autoPlay
-                muted
-                className='user-video-feed'
-            />
-
-            <button onClick={detectMood}>Detect Mood</button>
+        <div className='mood-container'>
+            <div className='mood-element'>
+                <div className='video-container'>
+                    <video
+                        ref={videoRef}
+                        autoPlay
+                        muted
+                        className='user-video-feed'
+                    />
+                    <div className='video-overlay'>
+                        <div className='pulse-ring'></div>
+                    </div>
+                </div>
+                <div className='controls'>
+                    <button className='detect-button' onClick={detectMood}>
+                        <span className='button-icon'>🎭</span>
+                        Detect My Mood
+                    </button>
+                    <p className='helper-text'>Click to analyze your facial expression and get mood-based songs</p>
+                </div>
+            </div>
         </div>
     );
 }
